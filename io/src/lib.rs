@@ -42,3 +42,11 @@ pub struct GameState {
     pub first_player: Player,
     pub winner: Option<Player>,
 }
+impl Metadata for PebblesMetadata {
+    type Init = In<PebblesInit>;
+    type Handle = InOut<PebblesAction, PebblesEvent>;
+    type State = Out<GameState>;
+    type Reply = ();
+    type Others = ();
+    type Signal = ();
+}

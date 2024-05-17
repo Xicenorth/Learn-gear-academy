@@ -11,3 +11,13 @@ pub enum DifficultyLevel {
     Easy,
     Hard,
 }
+#[derive(Debug, Clone, Encode, Decode, TypeInfo)]
+pub enum PebblesAction {
+    Turn(u32),
+    GiveUp,
+    Restart {
+        difficulty: DifficultyLevel,
+        pebbles_count: u32,
+        max_pebbles_per_turn: u32,
+    },
+}

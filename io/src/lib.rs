@@ -33,3 +33,12 @@ pub enum Player {
     User,
     Program,
 }
+#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo)]
+pub struct GameState {
+    pub pebbles_count: u32,
+    pub max_pebbles_per_turn: u32,
+    pub pebbles_remaining: u32,
+    pub difficulty: DifficultyLevel,
+    pub first_player: Player,
+    pub winner: Option<Player>,
+}

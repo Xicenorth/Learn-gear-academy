@@ -21,3 +21,15 @@ pub enum PebblesAction {
         max_pebbles_per_turn: u32,
     },
 }
+#[derive(Debug, Clone, Encode, Decode, TypeInfo)]
+pub enum PebblesEvent {
+    CounterTurn(u32),
+    Won(Player),
+}
+
+#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo)]
+pub enum Player {
+    #[default]
+    User,
+    Program,
+}

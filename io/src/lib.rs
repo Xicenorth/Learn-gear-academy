@@ -1,3 +1,19 @@
+#![no_std]
+
+use gmeta::{in, InOut, Out, Metadata};
+use gstd::prelude::*;
+
+pub struct PebblesMetadata;
+
+impl Metadata for PebblesMetadata {
+    type Init = In<PebblesInit>;
+    type Handle = InOut<PebblesAction, PebblesEvent>;
+    type State = Out<GameState>;
+    type Reply = ();
+    type Others = ();
+    type Signal = ();
+}
+
 #[derive(Debug, Default, Clone, Encode, Decode, TypeInfo)]
 pub struct PebblesInit {
     pub difficulty: DifficultyLevel,
@@ -42,11 +58,4 @@ pub struct GameState {
     pub first_player: Player,
     pub winner: Option<Player>,
 }
-impl Metadata for PebblesMetadata {
-    type Init = In<PebblesInit>;
-    type Handle = InOut<PebblesAction, PebblesEvent>;
-    type State = Out<GameState>;
-    type Reply = ();
-    type Others = ();
-    type Signal = ();
-}
+

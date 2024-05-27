@@ -1,6 +1,6 @@
 #![no_std]
 
-use gmeta::{in, InOut, Out, Metadata};
+use gmeta::{In, InOut, Out, Metadata};
 use gstd::prelude::*;
 
 pub struct PebblesMetadata;
